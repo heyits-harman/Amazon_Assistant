@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+
+  "name": "Amazon AI Review Assistant",
+
+  "version": "1.0.0",
+
+  "description": "Analyze Amazon product reviews using AI.",
+
+  "permissions": [
+    "tabs",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "https://*.amazon.in/*",
+    "https://*.amazon.com/*"
+  ],
+
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.amazon.in/*",
+        "https://*.amazon.com/*"
+      ],
+      "js": ["dist/content.js"]
+    }
+  ]
+}
